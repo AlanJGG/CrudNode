@@ -41,9 +41,9 @@ app.post('/agregarJugador', (req, res)=>{
     );
 });
 
-app.listen(3232, ()=>{
+app.listen($PORT, ()=>{
 
-    console.log("Servicio en el puerto 3232");
+    console.log("Servicio en el puerto");
 }
 
 )
