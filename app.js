@@ -1,15 +1,18 @@
 const express = require('express');
 const mysql= require('mysql2');
 var app = express();
+import {PORT} from './config'
+import {DB_HOST, DB_NAME, DB_PASSWORD, DB_USER, DB_PORT} from './config'
 
 var bodyParser= require('body-parser');
 
 var con= mysql.createConnection({
 
-    host: 'localhost',
-    user: 'root',
-    password: 'n0m3l0',
-    database: 'footballplayers'
+    host: DB_HOST,
+    user: DB_USER,
+    password: DB_PASSWORD,
+    database: DB_NAME,
+    port: DB_PORT
 });
 
 con.connect();
@@ -41,9 +44,9 @@ app.post('/agregarJugador', (req, res)=>{
     );
 });
 
-app.listen($PORT, ()=>{
+app.listen(PORT, ()=>{
 
-    console.log("Servicio en el puerto");
+    console.log("Servicio en el puerto", PORT);
 }
 
 )
@@ -106,5 +109,4 @@ app.get('/obtenerJugador', (req, res)=>{
             `)
         })
     });
-    
-;
+ 
